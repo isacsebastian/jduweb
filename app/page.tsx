@@ -2,6 +2,7 @@ import HeroSection from "@/components/sections/hero-section"
 import BrandsSection from "@/components/sections/brands-section"
 import TimelineSection from "@/components/sections/timeline-section"
 import AchievementsSection from "@/components/sections/achievements-section"
+import WorldScenariosSection from "@/components/sections/world-scenarios-section"
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <BrandsSection />
       <TimelineSection />
       <AchievementsSection />
+      <WorldScenariosSection />
     </main>
   )
 }
