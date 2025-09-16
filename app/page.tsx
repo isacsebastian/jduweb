@@ -13,7 +13,7 @@ export default function Home() {
       <TimelineSection />
       <AchievementsSection />
       <WorldScenariosSection />
-      <ValoresRings />
+      {/* <ValoresRings /> */}
     </main>
   )
 }

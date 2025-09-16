@@ -25,7 +25,7 @@ const labelVariant: Variants = {
 
 export default function ValoresSection({
   labels = ["Pasión", "Disciplina", "Liderazgo", "Respeto"],
-  centro = "Compromiso",
+  centro = "EQUIPO",
   labelBg = "bg-black",
   positions = [0.12, 0.32, 0.68, 0.88],
 }: {
