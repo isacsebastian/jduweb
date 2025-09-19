@@ -1,20 +1,20 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import useEmblaCarousel from "embla-carousel-react"
-import { useCallback, useEffect, useState } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 interface SlideData {
-  id: number
-  title: string
-  subtitle: string
-  description: string
-  secondaryText: string
-  image: string
-  imageMobile?: string
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  secondaryText: string;
+  image: string;
+  imageMobile?: string;
 }
 
 const slides: SlideData[] = [
@@ -22,69 +22,78 @@ const slides: SlideData[] = [
     id: 1,
     title: "JOSÉ DANIEL UGALDE",
     subtitle: "ENTRENA CON PASIÓN | COMPITE CON PROPÓSITO",
-    description: "Deportista de élite con más de 20 años de trayectoria en el racquetball. Top 10 mundial y representante del Ecuador en múltiples campeonatos internacionales.",
-    secondaryText: "Su carrera se distingue por la disciplina, la constancia y los logros obtenidos en escenarios de alto rendimiento.",
-    image: "public/assests/slides/slide1pc.webp",
-    imageMobile: ""
+    description:
+      "Deportista de élite con más de 20 años de trayectoria en el racquetball. Top 10 mundial y representante del Ecuador en múltiples campeonatos internacionales.",
+    secondaryText:
+      "Su carrera se distingue por la disciplina, la constancia y los logros obtenidos en escenarios de alto rendimiento.",
+    image: "/slide1pc.webp",
+    imageMobile: "/slide1pc.webp",
   },
   {
     id: 2,
     title: "CAMPEÓN MUNDIAL",
     subtitle: "EXCELENCIA | DEDICACIÓN",
-    description: "Múltiples títulos internacionales y reconocimientos que destacan su dominio técnico y mental en el deporte del racquetball.",
-    secondaryText: "Una trayectoria marcada por la búsqueda constante de la perfección y el compromiso con la excelencia deportiva.",
-    image: "../assests/slides/slide2pc.webp",
-    imageMobile: "/assests/slides/slide2.webp"
+    description:
+      "Múltiples títulos internacionales y reconocimientos que destacan su dominio técnico y mental en el deporte del racquetball.",
+    secondaryText:
+      "Una trayectoria marcada por la búsqueda constante de la perfección y el compromiso con la excelencia deportiva.",
+    image: "/slide2pc.webp",
+    imageMobile: "/slide2pc.webp",
   },
   {
     id: 3,
     title: "REPRESENTANTE ECUATORIANO",
     subtitle: "ORGULLO NACIONAL | INSPIRACIÓN",
-    description: "Embajador del deporte ecuatoriano en competencias internacionales, llevando el nombre del país a los más altos niveles.",
-    secondaryText: "Un ejemplo de determinación que inspira a las nuevas generaciones de deportistas ecuatorianos.",
-    image: "/assests/slides/slide3pc.webp",
-    imageMobile: "/assests/slides/slide3.webp"
-  }
-]
+    description:
+      "Embajador del deporte ecuatoriano en competencias internacionales, llevando el nombre del país a los más altos niveles.",
+    secondaryText:
+      "Un ejemplo de determinación que inspira a las nuevas generaciones de deportistas ecuatorianos.",
+    image: "/slide3pc.webp",
+    imageMobile: "/slide3pc.webp",
+  },
+];
 
 export default function HeroSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 30 })
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 30 });
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
-  const scrollTo = useCallback((index: number) => {
-    if (emblaApi) emblaApi.scrollTo(index)
-  }, [emblaApi])
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) emblaApi.scrollTo(index);
+    },
+    [emblaApi]
+  );
 
   const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setCurrentIndex(emblaApi.selectedScrollSnap())
-  }, [emblaApi])
+    if (!emblaApi) return;
+    setCurrentIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
 
   useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    emblaApi.on('select', onSelect)
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
     return () => {
-      emblaApi.off('select', onSelect)
-    }
-  }, [emblaApi, onSelect])
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   // Auto-scroll functionality
   useEffect(() => {
-    if (!emblaApi) return
+    if (!emblaApi) return;
     const interval = setInterval(() => {
-      emblaApi.scrollNext()
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [emblaApi])
+      emblaApi.scrollNext();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [emblaApi]);
 
   return (
     <section className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -121,45 +130,67 @@ export default function HeroSection() {
       <div className="embla relative" ref={emblaRef}>
         <div className="embla__container flex">
           {slides.map((slide, index) => (
-            <div key={slide.id} className="embla__slide flex-[0_0_100%] min-w-0">
+            <div
+              key={slide.id}
+              className="embla__slide flex-[0_0_100%] min-w-0"
+            >
               <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen px-6 md:px-8 pt-20 lg:pt-0">
                 {/* Left Content */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: currentIndex === index ? 1 : 0, x: currentIndex === index ? 0 : -50 }}
+                  animate={{
+                    opacity: currentIndex === index ? 1 : 0,
+                    x: currentIndex === index ? 0 : -50,
+                  }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="flex-1 max-w-2xl lg:pr-12 text-center lg:text-left"
                 >
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: currentIndex === index ? 1 : 0, y: currentIndex === index ? 0 : 30 }}
+                    animate={{
+                      opacity: currentIndex === index ? 1 : 0,
+                      y: currentIndex === index ? 0 : 30,
+                    }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                   >
-                    {slide.title.split(' ').map((word, i) => (
+                    {slide.title.split(" ").map((word, i) => (
                       <span key={i} className={i > 1 ? "block" : ""}>
-                        {word}{i <= 1 && i < slide.title.split(' ').length - 1 ? ' ' : ''}
+                        {word}
+                        {i <= 1 && i < slide.title.split(" ").length - 1
+                          ? " "
+                          : ""}
                       </span>
                     ))}
                   </motion.h2>
 
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: currentIndex === index ? 1 : 0, y: currentIndex === index ? 0 : 20 }}
+                    animate={{
+                      opacity: currentIndex === index ? 1 : 0,
+                      y: currentIndex === index ? 0 : 20,
+                    }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 text-sm md:text-base tracking-wider"
                   >
-                    {slide.subtitle.split(' | ').map((part, i) => (
+                    {slide.subtitle.split(" | ").map((part, i) => (
                       <span key={i}>
-                        <span className="border-b border-white pb-1">{part}</span>
-                        {i === 0 && <span className="hidden sm:inline mx-4">|</span>}
+                        <span className="border-b border-white pb-1">
+                          {part}
+                        </span>
+                        {i === 0 && (
+                          <span className="hidden sm:inline mx-4">|</span>
+                        )}
                       </span>
                     ))}
                   </motion.div>
 
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: currentIndex === index ? 1 : 0, y: currentIndex === index ? 0 : 20 }}
+                    animate={{
+                      opacity: currentIndex === index ? 1 : 0,
+                      y: currentIndex === index ? 0 : 20,
+                    }}
                     transition={{ duration: 0.6, delay: 0.8 }}
                     className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
                   >
@@ -168,7 +199,10 @@ export default function HeroSection() {
 
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: currentIndex === index ? 1 : 0, y: currentIndex === index ? 0 : 20 }}
+                    animate={{
+                      opacity: currentIndex === index ? 1 : 0,
+                      y: currentIndex === index ? 0 : 20,
+                    }}
                     transition={{ duration: 0.6, delay: 1.0 }}
                     className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0"
                   >
@@ -177,7 +211,10 @@ export default function HeroSection() {
 
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: currentIndex === index ? 1 : 0, y: currentIndex === index ? 0 : 20 }}
+                    animate={{
+                      opacity: currentIndex === index ? 1 : 0,
+                      y: currentIndex === index ? 0 : 20,
+                    }}
                     transition={{ duration: 0.6, delay: 1.2 }}
                   >
                     <Button
@@ -193,7 +230,10 @@ export default function HeroSection() {
                 {/* Right Content - Image */}
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: currentIndex === index ? 1 : 0, x: currentIndex === index ? 0 : 50 }}
+                  animate={{
+                    opacity: currentIndex === index ? 1 : 0,
+                    x: currentIndex === index ? 0 : 50,
+                  }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   className="flex-1 max-w-lg mt-12 lg:mt-0"
                 >
@@ -224,13 +264,19 @@ export default function HeroSection() {
                     {/* Decorative elements */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: currentIndex === index ? 1 : 0, scale: currentIndex === index ? 1 : 0.8 }}
+                      animate={{
+                        opacity: currentIndex === index ? 1 : 0,
+                        scale: currentIndex === index ? 1 : 0.8,
+                      }}
                       transition={{ duration: 1, delay: 1.4 }}
                       className="absolute -top-4 -right-4 w-20 h-20 border border-white/20 rounded-full"
                     />
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: currentIndex === index ? 1 : 0, scale: currentIndex === index ? 1 : 0.8 }}
+                      animate={{
+                        opacity: currentIndex === index ? 1 : 0,
+                        scale: currentIndex === index ? 1 : 0.8,
+                      }}
                       transition={{ duration: 1, delay: 1.6 }}
                       className="absolute -bottom-4 -left-4 w-16 h-16 border border-white/10 rounded-full"
                     />
@@ -261,7 +307,9 @@ export default function HeroSection() {
               key={index}
               onClick={() => scrollTo(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentIndex === index ? 'bg-white' : 'bg-white/30 hover:bg-white/60'
+                currentIndex === index
+                  ? "bg-white"
+                  : "bg-white/30 hover:bg-white/60"
               }`}
             />
           ))}
@@ -293,5 +341,5 @@ export default function HeroSection() {
         />
       </div>
     </section>
-  )
+  );
 }
