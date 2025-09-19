@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const countries = [
   { name: "Canadá", x: "23%", y: "25%" },
@@ -29,11 +30,13 @@ export default function WorldScenariosSection() {
 
         {/* Mobile con scroll horizontal */}
         <div className="block md:hidden overflow-x-auto">
-          <div className="relative min-w-[900px]">
-            <img
-              src="/MAPA.svg"
+          <div className="relative min-w-[900px] h-[400px]">
+            <Image
+              src="/mapa.svg"
               alt="Mapa mundial"
-              className="w-full h-auto"
+              fill
+              className="object-contain"
+              priority
             />
             {countries.map((country, i) => (
               <motion.div
@@ -55,11 +58,13 @@ export default function WorldScenariosSection() {
 
         {/* Desktop con mapa completo */}
         <div className="hidden md:block">
-          <div className="relative w-full">
-            <img
-              src="/MAPA.svg"
+          <div className="relative w-full h-[600px]">
+            <Image
+              src="/mapa.svg"
               alt="Mapa mundial"
-              className="w-full h-auto"
+              fill
+              className="object-contain"
+              priority
             />
             {countries.map((country, i) => (
               <motion.div

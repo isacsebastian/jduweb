@@ -27,7 +27,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Su carrera se distingue por la disciplina, la constancia y los logros obtenidos en escenarios de alto rendimiento.",
     image: "/slide1pc.webp",
-    imageMobile: "/slide1pc.webp",
+    imageMobile: "/slide1.webp",
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Una trayectoria marcada por la búsqueda constante de la perfección y el compromiso con la excelencia deportiva.",
     image: "/slide2pc.webp",
-    imageMobile: "/slide2pc.webp",
+    imageMobile: "/slide2.webp",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Un ejemplo de determinación que inspira a las nuevas generaciones de deportistas ecuatorianos.",
     image: "/slide3pc.webp",
-    imageMobile: "/slide3pc.webp",
+    imageMobile: "/slide3.webp",
   },
 ];
 
@@ -216,13 +216,18 @@ export default function HeroSection() {
                       transition={{ type: "spring", stiffness: 300 }}
                       className="relative w-full h-[500px] md:h-[600px] rounded-lg overflow-hidden"
                     >
+                      {/* Desktop Image */}
                       <Image
                         src={slide.image}
                         alt={slide.title}
                         fill
                         className="object-cover hidden md:block"
                         priority={index === 0}
+                        sizes="(max-width: 768px) 0px, (max-width: 1200px) 50vw, 33vw"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkrHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5T0m5jgQaZRrGhMjM8V9Q2p5g0lTOu8NsKWL7W8P1y3n/2Q=="
                       />
+                      {/* Mobile Image */}
                       {slide.imageMobile && (
                         <Image
                           src={slide.imageMobile}
@@ -230,6 +235,9 @@ export default function HeroSection() {
                           fill
                           className="object-cover md:hidden"
                           priority={index === 0}
+                          sizes="100vw"
+                          placeholder="blur"
+                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkrHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5T0m5jgQaZRrGhMjM8V9Q2p5g0lTOu8NsKWL7W8P1y3n/2Q=="
                         />
                       )}
                     </motion.div>
