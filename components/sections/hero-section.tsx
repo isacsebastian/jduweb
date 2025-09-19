@@ -97,34 +97,7 @@ export default function HeroSection() {
 
   return (
     <section className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Header Navigation */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="absolute top-0 left-0 right-0 z-30 p-6 md:p-8"
-      >
-        <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <motion.h1
-            className="text-xl md:text-2xl font-bold tracking-wider"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            JOSÉ DANIEL UGALDE
-          </motion.h1>
-
-          {/* Mobile Menu Button */}
-          <motion.button
-            className="md:hidden flex flex-col space-y-1"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-          </motion.button>
-        </div>
-      </motion.header>
+   
 
       {/* Carousel Container */}
       <div className="embla relative" ref={emblaRef}>
