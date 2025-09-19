@@ -16,16 +16,16 @@ const countries = [
   
   // América del Sur
   { name: "Colombia", x: "25%", y: "52%" },
-  { name: "Ecuador", x: "23%", y: "57%" },
+  { name: "Ecuador", x: "30%", y: "57%" },
   { name: "Perú", x: "25%", y: "62%" },
-  { name: "Bolivia", x: "28%", y: "64%" },
-  { name: "Chile", x: "26%", y: "75%" },
+  { name: "Bolivia", x: "33%", y: "73%" },
+  { name: "Chile", x: "32%", y: "80%" },
   
   // Europa
-  { name: "Irlanda", x: "42%", y: "27%" },
+  { name: "Irlanda", x: "45%", y: "29%" },
   
   // Asia
-  { name: "China", x: "60%", y: "42%" },
+  { name: "China", x: "70%", y: "42%" },
 ]
 
 export default function WorldScenariosSection() {
@@ -33,7 +33,7 @@ export default function WorldScenariosSection() {
     <section className="w-full py-12 bg-black text-white">
       <div className="container mx-auto px-4">
         {/* Título */}
-        <h2 className="title-section text-center mb-8">
+        <h2 className="title-section text-center mb-6">
           Escenarios Mundiales
         </h2>
 

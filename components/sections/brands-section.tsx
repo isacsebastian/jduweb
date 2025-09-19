@@ -39,7 +39,7 @@ export default function BrandsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">PATROCINADORES Y MARCAS</h2>
+          <h1 className="text-3xl md:text-3xl font-bold text-white mb-4">PATROCINADORES Y MARCAS</h1>
           <p className="text-gray-400 max-w-2xl mx-auto">Respaldado por las mejores marcas y empresas</p>
         </motion.div>
 

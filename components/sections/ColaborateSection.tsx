@@ -27,7 +27,7 @@ const CollaborateSection: React.FC = () => {
         {/* Título principal */}
         <div className="text-center mb-12">
           <h1 className="title-main mb-6">
-            LET'S COLLABORATE
+            CONTÁCTAME
           </h1>
           <p className="text-body-large text-gray-300 mb-8">
             Impulsa tu marca junto a un<br />
