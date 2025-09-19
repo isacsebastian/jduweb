@@ -27,7 +27,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Su carrera se distingue por la disciplina y los logros en escenarios de alto rendimiento.",
     image: "/slide1pc.webp",
-    imageMobile: "/slide1.png",
+    imageMobile: "https://i.imgur.com/Ypsqwiw.png",
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Una trayectoria marcada por la búsqueda de la perfección y excelencia deportiva.",
     image: "/slide2pc.webp",
-    imageMobile: "/slide2.webp",
+    imageMobile: "https://i.imgur.com/Ypsqwiw.png",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Un ejemplo que inspira a las nuevas generaciones de deportistas ecuatorianos.",
     image: "/slide3pc.webp",
-    imageMobile: "/slide3.webp",
+    imageMobile: "https://i.imgur.com/Ypsqwiw.jpg",
   },
 ];
 
@@ -217,29 +217,44 @@ export default function HeroSection() {
                       className="relative w-full h-[600px] lg:h-[600px] rounded-lg overflow-hidden"
                     >
                       {/* Mobile Image */}
-                      <Image
-                        src={slide.imageMobile || slide.image}
-                        alt={slide.title}
-                        fill
-                        className="object-cover lg:hidden"
-                        priority={index === 0}
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        quality={90}
-                        onError={(e) => {
-                          console.log(`Failed to load mobile image: ${slide.imageMobile}, trying desktop: ${slide.image}`);
-                          e.currentTarget.src = slide.image;
-                        }}
-                      />
+                      <div className="lg:hidden w-full h-full">
+                        {slide.imageMobile?.includes('http') ? (
+                          <img
+                            src={slide.imageMobile}
+                            alt={slide.title}
+                            className="w-full h-full object-cover"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            onError={(e) => {
+                              console.log('External image failed to load, trying fallback');
+                              e.currentTarget.style.display = 'none';
+                              const fallback = e.currentTarget.nextElementSibling;
+                              if (fallback && fallback instanceof HTMLElement) fallback.style.display = 'block';
+                            }}
+                          />
+                        ) : (
+                          <Image
+                            src={slide.imageMobile || slide.image}
+                            alt={slide.title}
+                            fill
+                            className="object-cover"
+                            priority={index === 0}
+                            sizes="100vw"
+                            quality={85}
+                          />
+                        )}
+                      </div>
                       {/* Desktop Image */}
-                      <Image
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        className="object-cover hidden lg:block"
-                        priority={index === 0}
-                        sizes="(max-width: 1024px) 0px, 50vw"
-                        quality={90}
-                      />
+                      <div className="hidden lg:block w-full h-full">
+                        <Image
+                          src={slide.image}
+                          alt={slide.title}
+                          fill
+                          className="object-cover"
+                          priority={index === 0}
+                          sizes="50vw"
+                          quality={90}
+                        />
+                      </div>
                     </motion.div>
 
                     {/* Decorative elements */}
