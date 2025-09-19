@@ -96,7 +96,7 @@ export default function HeroSection() {
   }, [emblaApi]);
 
   return (
-    <section className="min-h-[120vh] lg:min-h-screen lg:h-[90vh] lg:max-h-[90vh] bg-black text-white relative overflow-hidden">
+    <section className="min-h-[130vh] lg:min-h-screen lg:h-[90vh] lg:max-h-[90vh] bg-black text-white relative overflow-hidden">
       {/* Carousel Container */}
       <div className="embla relative" ref={emblaRef}>
         <div className="embla__container flex">
@@ -105,7 +105,7 @@ export default function HeroSection() {
               key={slide.id}
               className="embla__slide flex-[0_0_100%] min-w-0"
             >
-              <div className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-[120vh] lg:min-h-screen lg:h-[90vh] lg:px-8 lg:pt-0 lg:pb-0">
+              <div className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-[130vh] lg:min-h-screen lg:h-[90vh] lg:px-8 lg:pt-0 lg:pb-0">
                 {/* Left Content */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
@@ -114,7 +114,7 @@ export default function HeroSection() {
                     x: currentIndex === index ? 0 : -50,
                   }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="flex-1 max-w-2xl lg:pr-12 text-center lg:text-left px-4 md:px-6 lg:px-0 -mt-8 lg:mt-0 relative z-20"
+                  className="flex-1 max-w-2xl lg:pr-12 text-center lg:text-left px-4 md:px-6 lg:px-0 -mt-13 lg:mt-0 relative z-20"
                 >
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -210,7 +210,7 @@ export default function HeroSection() {
                 >
                   <div className="relative">
                     {/* Mobile Image - Sin márgenes laterales con padding top */}
-                    <div className="lg:hidden w-full h-[600px] overflow-hidden pt-5 lg:pt-0">
+                    <div className="lg:hidden w-full h-[500px] overflow-hidden pt-5 lg:pt-0">
                       {slide.imageMobile?.includes('http') ? (
                         <img
                           src={slide.imageMobile}
@@ -241,7 +241,7 @@ export default function HeroSection() {
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       transition={{ type: "spring", stiffness: 300 }}
-                      className="hidden lg:block relative w-full h-[600px] rounded-lg overflow-hidden"
+                      className="hidden lg:block relative w-full h-[550px] rounded-lg overflow-hidden"
                     >
                       <Image
                         src={slide.image}
