@@ -27,7 +27,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Su carrera se distingue por la disciplina y los logros en escenarios de alto rendimiento.",
     image: "/slide1pc.webp",
-    imageMobile: "https://i.imgur.com/Ypsqwiw.png",
+    imageMobile: "https://imgur.com/XY18MCd.png",
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ const slides: SlideData[] = [
     secondaryText:
       "Un ejemplo que inspira a las nuevas generaciones de deportistas ecuatorianos.",
     image: "/slide3pc.webp",
-    imageMobile: "https://i.imgur.com/Ypsqwiw.jpg",
+    imageMobile: "https://imgur.com/DUEGSbh.png",
   },
 ];
 
@@ -96,9 +96,7 @@ export default function HeroSection() {
   }, [emblaApi]);
 
   return (
-    <section className="min-h-screen lg:h-[90vh] lg:max-h-[90vh] bg-black text-white relative overflow-hidden">
-   
-
+    <section className="min-h-[120vh] lg:min-h-screen lg:h-[90vh] lg:max-h-[90vh] bg-black text-white relative overflow-hidden">
       {/* Carousel Container */}
       <div className="embla relative" ref={emblaRef}>
         <div className="embla__container flex">
@@ -107,7 +105,7 @@ export default function HeroSection() {
               key={slide.id}
               className="embla__slide flex-[0_0_100%] min-w-0"
             >
-              <div className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-screen lg:h-[90vh] px-4 md:px-6 lg:px-8 pt-4 pb-8 lg:pt-0 lg:pb-0">
+              <div className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-[120vh] lg:min-h-screen lg:h-[90vh] lg:px-8 lg:pt-0 lg:pb-0">
                 {/* Left Content */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
@@ -116,7 +114,7 @@ export default function HeroSection() {
                     x: currentIndex === index ? 0 : -50,
                   }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="flex-1 max-w-2xl lg:pr-12 text-center lg:text-left mb-0 lg:mb-0"
+                  className="flex-1 max-w-2xl lg:pr-12 text-center lg:text-left px-4 md:px-6 lg:px-0 -mt-8 lg:mt-0 relative z-20"
                 >
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -208,56 +206,55 @@ export default function HeroSection() {
                     x: currentIndex === index ? 0 : 50,
                   }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="flex-1 max-w-lg mt-0 lg:mt-0 mb-4 lg:mb-0"
+                  className="flex-1 max-w-lg lg:mt-0 mb-0 lg:mb-0 w-full lg:w-auto"
                 >
                   <div className="relative">
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="relative w-full h-[600px] lg:h-[600px] rounded-lg overflow-hidden"
-                    >
-                      {/* Mobile Image */}
-                      <div className="lg:hidden w-full h-full">
-                        {slide.imageMobile?.includes('http') ? (
-                          <img
-                            src={slide.imageMobile}
-                            alt={slide.title}
-                            className="w-full h-full object-cover"
-                            loading={index === 0 ? "eager" : "lazy"}
-                            onError={(e) => {
-                              console.log('External image failed to load, trying fallback');
-                              e.currentTarget.style.display = 'none';
-                              const fallback = e.currentTarget.nextElementSibling;
-                              if (fallback && fallback instanceof HTMLElement) fallback.style.display = 'block';
-                            }}
-                          />
-                        ) : (
-                          <Image
-                            src={slide.imageMobile || slide.image}
-                            alt={slide.title}
-                            fill
-                            className="object-cover"
-                            priority={index === 0}
-                            sizes="100vw"
-                            quality={85}
-                          />
-                        )}
-                      </div>
-                      {/* Desktop Image */}
-                      <div className="hidden lg:block w-full h-full">
+                    {/* Mobile Image - Sin márgenes laterales con padding top */}
+                    <div className="lg:hidden w-full h-[600px] overflow-hidden pt-5 lg:pt-0">
+                      {slide.imageMobile?.includes('http') ? (
+                        <img
+                          src={slide.imageMobile}
+                          alt={slide.title}
+                          className="w-full h-full object-cover"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          onError={(e) => {
+                            console.log('External image failed to load, trying fallback');
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling;
+                            if (fallback && fallback instanceof HTMLElement) fallback.style.display = 'block';
+                          }}
+                        />
+                      ) : (
                         <Image
-                          src={slide.image}
+                          src={slide.imageMobile || slide.image}
                           alt={slide.title}
                           fill
                           className="object-cover"
                           priority={index === 0}
-                          sizes="50vw"
-                          quality={90}
+                          sizes="100vw"
+                          quality={85}
                         />
-                      </div>
+                      )}
+                    </div>
+
+                    {/* Desktop Image */}
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="hidden lg:block relative w-full h-[600px] rounded-lg overflow-hidden"
+                    >
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        className="object-cover"
+                        priority={index === 0}
+                        sizes="50vw"
+                        quality={90}
+                      />
                     </motion.div>
 
-                    {/* Decorative elements */}
+                    {/* Decorative elements - Solo en desktop */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{
@@ -265,7 +262,7 @@ export default function HeroSection() {
                         scale: currentIndex === index ? 1 : 0.8,
                       }}
                       transition={{ duration: 1, delay: 1.4 }}
-                      className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-12 h-12 lg:w-20 lg:h-20 border border-white/20 rounded-full"
+                      className="absolute -top-4 -right-4 w-20 h-20 border border-white/20 rounded-full hidden lg:block"
                     />
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -274,7 +271,7 @@ export default function HeroSection() {
                         scale: currentIndex === index ? 1 : 0.8,
                       }}
                       transition={{ duration: 1, delay: 1.6 }}
-                      className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-10 h-10 lg:w-16 lg:h-16 border border-white/10 rounded-full"
+                      className="absolute -bottom-4 -left-4 w-16 h-16 border border-white/10 rounded-full hidden lg:block"
                     />
                   </div>
                 </motion.div>
