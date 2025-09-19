@@ -24,7 +24,7 @@ export default function WorldScenariosSection() {
     <section className="w-full py-12 bg-black text-white">
       <div className="container mx-auto px-4">
         {/* Título */}
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+        <h2 className="title-section text-center mb-8">
           Escenarios Mundiales
         </h2>
 
@@ -48,7 +48,7 @@ export default function WorldScenariosSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <div className="w-3 h-3 bg-white rounded-full border border-black shadow" />
-                <span className="ml-2 px-2 py-1 text-xs bg-white text-black rounded-md shadow whitespace-nowrap">
+                <span className="ml-2 px-2 py-1 text-caption bg-white text-black rounded-md shadow whitespace-nowrap">
                   {country.name}
                 </span>
               </motion.div>
@@ -76,7 +76,7 @@ export default function WorldScenariosSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <div className="w-3 h-3 bg-white rounded-full border border-black shadow" />
-                <span className="ml-2 px-2 py-1 text-xs bg-white text-black rounded-md shadow whitespace-nowrap">
+                <span className="ml-2 px-2 py-1 text-caption bg-white text-black rounded-md shadow whitespace-nowrap">
                   {country.name}
                 </span>
               </motion.div>

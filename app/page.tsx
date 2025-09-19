@@ -24,7 +24,7 @@ export default function Home() {
       {/* Navigation Header */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-sm border-b border-gray-800">
         <div className="flex items-center justify-between p-4 max-w-7xl mx-auto">
-          <h1 className="text-white text-lg font-light">
+          <h1 className="text-white text-nav">
             JOSÉ DANIEL <span className="font-bold">UGALDE</span>
           </h1>
           <button

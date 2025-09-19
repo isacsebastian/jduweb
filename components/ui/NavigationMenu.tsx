@@ -68,7 +68,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-6 border-b border-gray-700">
             <div className="flex items-center">
-              <h1 className="text-lg font-light">
+              <h1 className="text-nav">
                 JOSÉ DANIEL <span className="font-bold">UGALDE</span>
               </h1>
             </div>
@@ -94,7 +94,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
                     }}
                     className="flex items-center justify-between group py-2 hover:text-gray-300 transition-colors"
                   >
-                    <span className="text-lg font-light tracking-wide">
+                    <span className="text-nav">
                       {item.title}
                     </span>
                     <div className="text-gray-400 group-hover:text-white transition-colors">
@@ -108,7 +108,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
 
           <div className="px-6 pb-8 border-t border-gray-700 pt-8">
             <div className="space-y-4">
-              <h2 className="text-lg font-light tracking-wide">
+              <h2 className="text-nav">
                 LET'S COLLABORATE
               </h2>
               <button
@@ -116,7 +116,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
                   onClose();
                   console.log('Contactar clickeado');
                 }}
-                className="w-full bg-white text-black py-3 px-6 rounded-full font-medium hover:bg-gray-200 transition-colors"
+                className="w-full bg-white text-black py-3 px-6 rounded-full text-button hover:bg-gray-200 transition-colors"
               >
                 CONTACTAR
               </button>

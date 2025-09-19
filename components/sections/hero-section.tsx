@@ -125,7 +125,7 @@ export default function HeroSection() {
                       y: currentIndex === index ? 0 : 30,
                     }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                    className="title-main mb-6"
                   >
                     {slide.title.split(" ").map((word, i) => (
                       <span key={i} className={i > 1 ? "block" : ""}>
@@ -144,7 +144,7 @@ export default function HeroSection() {
                       y: currentIndex === index ? 0 : 20,
                     }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 text-sm md:text-base tracking-wider"
+                    className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 subtitle"
                   >
                     {slide.subtitle.split(" | ").map((part, i) => (
                       <span key={i}>
@@ -165,7 +165,7 @@ export default function HeroSection() {
                       y: currentIndex === index ? 0 : 20,
                     }}
                     transition={{ duration: 0.6, delay: 0.8 }}
-                    className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
+                    className="text-gray-300 text-body-large mb-8 max-w-lg mx-auto lg:mx-0"
                   >
                     {slide.description}
                   </motion.p>
@@ -177,7 +177,7 @@ export default function HeroSection() {
                       y: currentIndex === index ? 0 : 20,
                     }}
                     transition={{ duration: 0.6, delay: 1.0 }}
-                    className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0"
+                    className="text-gray-400 text-body mb-10 max-w-lg mx-auto lg:mx-0"
                   >
                     {slide.secondaryText}
                   </motion.p>
@@ -193,7 +193,7 @@ export default function HeroSection() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="bg-transparent border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-8 py-3 text-sm tracking-wider font-medium"
+                      className="bg-transparent border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-8 py-3 text-button"
                     >
                       CONOCE SU HISTORIA
                     </Button>

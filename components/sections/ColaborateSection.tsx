@@ -26,14 +26,14 @@ const CollaborateSection: React.FC = () => {
       <div className="max-w-6xl w-full">
         {/* Título principal */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-wider">
+          <h1 className="title-main mb-6">
             LET'S COLLABORATE
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-8">
+          <p className="text-body-large text-gray-300 mb-8">
             Impulsa tu marca junto a un<br />
             referente deportivo.
           </p>
-          <button className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300">
+          <button className="bg-white text-black px-8 py-3 rounded-full text-button hover:bg-gray-200 transition-all duration-300">
             CONTACTAR
           </button>
         </div>
@@ -42,13 +42,13 @@ const CollaborateSection: React.FC = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start mb-16 space-y-8 lg:space-y-0">
           {/* Columna izquierda */}
           <div className="lg:w-1/3">
-            <h2 className="text-xl font-bold mb-6 text-gray-400">SECCIONES</h2>
+            <h2 className="title-small mb-6 text-gray-400">SECCIONES</h2>
             <div className="space-y-4">
               {sections.map((section, index) => (
                 <a
                   key={section.title}
                   href={section.link}
-                  className="block text-gray-300 hover:text-white transition-colors duration-300"
+                  className="block text-gray-300 hover:text-white transition-colors duration-300 text-nav"
                 >
                   {section.title}
                 </a>

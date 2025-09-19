@@ -103,7 +103,7 @@ const AgendaProxima: React.FC = () => {
 
   return (
     <div className="bg-black text-white p-8 rounded-lg max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-8 text-center">AGENDA PRÓXIMA</h1>
+      <h1 className="title-section mb-8 text-center">AGENDA PRÓXIMA</h1>
       
       <div className="space-y-4">
         {events.map((event) => (
@@ -114,10 +114,10 @@ const AgendaProxima: React.FC = () => {
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm font-medium">
+                <div className="text-body-small font-medium">
                   {event.title}
                   {event.subtitle && (
-                    <div className="text-sm">{event.subtitle}</div>
+                    <div className="text-body-small">{event.subtitle}</div>
                   )}
                 </div>
               </div>
