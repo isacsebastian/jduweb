@@ -17,7 +17,7 @@ const timelineData: TimelineItem[] = [
     description: "",
   },
   {
-    year: "2006",
+    year: "2002",
     title: "Primer Mundial Juvenil:",
     description: "Vicecampeón mundial en dobles mixtos, bronce en singles y dobles.",
   },

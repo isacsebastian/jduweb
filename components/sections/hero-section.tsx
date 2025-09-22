@@ -23,7 +23,7 @@ const slides: SlideData[] = [
     title: "JOSÉ DANIEL UGALDE",
     subtitle: "ENTRENA CON PASIÓN | COMPITE CON PROPÓSITO",
     description:
-      "Deportista de élite con más de 20 años de trayectoria en racquetball. Top 10 mundial y representante del Ecuador.",
+      "Deportista de élite con más de 30 años de trayectoria en racquetball. Top 10 mundial y representante del Ecuador.",
     secondaryText:
       "Su carrera se distingue por la disciplina y los logros en escenarios de alto rendimiento.",
     image: "/slide1pc.webp",

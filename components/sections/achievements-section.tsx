@@ -19,6 +19,7 @@ const achievements: Achievement[] = [
     details: [
       "Vicecampeón mundial en dobles mixtos (2006)",
       "Medalla de bronce en singles y dobles (2006)",
+      "Medalla de plata en dobles varonil juvenil en el (2009)",
       "Finalista en múltiples torneos panamericanos",
       "Representante oficial del Ecuador en competencias internacionales",
     ],
