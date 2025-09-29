@@ -229,7 +229,7 @@ export default function HeroSection() {
                 >
                   <div className="relative">
                     {/* Mobile Image - Sin márgenes laterales con padding top */}
-                    <div className="lg:hidden w-full h-[500px] overflow-hidden pt-5 lg:pt-0">
+                    <div className={`lg:hidden w-full h-[500px] overflow-hidden lg:pt-0 ${index === 0 ? 'pt-5' : 'pt-[50px]'}`}>
                       {slide.imageMobile?.includes('http') ? (
                         <img
                           src={slide.imageMobile}

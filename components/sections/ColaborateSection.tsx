@@ -4,15 +4,15 @@ import React from 'react';
 const CollaborateSection: React.FC = () => {
 
   const sections = [
-    { title: 'MARCAS', link: '#' },
-    { title: 'TRAYECTORIA', link: '#' },
-    { title: 'LOGROS', link: '#' }
+    { title: 'MARCAS', link: '#marcas' },
+    { title: 'TRAYECTORIA', link: '#trayectoria' },
+    { title: 'LOGROS', link: '#logros' }
   ];
 
   const rightSections = [
-    { title: 'ESCENARIOS MUNDIALES', link: '#' },
-    { title: 'VALORES', link: '#' },
-    { title: 'AGENDA PRÓXIMA', link: '#' }
+    { title: 'ESCENARIOS MUNDIALES', link: '#escenarios' },
+    { title: 'VALORES', link: '#valores' },
+    { title: 'AGENDA PRÓXIMA', link: '#agenda' }
   ];
 
   const socialLinks = [
