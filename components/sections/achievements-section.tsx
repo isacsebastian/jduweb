@@ -3,12 +3,19 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
+import Image from "next/image"
 
 interface Achievement {
   id: number
   title: string
   description: string
   details?: string[]
+}
+
+const numberImages = {
+  1: "/assests/slides/numbers/uno.png",
+  2: "/assests/slides/numbers/dos.png",
+  3: "/assests/slides/numbers/tres.png"
 }
 
 const achievements: Achievement[] = [
@@ -84,9 +91,13 @@ export default function AchievementsSection() {
             >
               <div className="flex items-start gap-8 py-8">
                 <div className="flex-shrink-0">
-                  <span className="text-6xl md:text-8xl font-black text-gray-300 leading-none">
-                    {achievement.id.toString().padStart(2, "0")}
-                  </span>
+                  <Image
+                    src={numberImages[achievement.id as keyof typeof numberImages]}
+                    alt={`Número ${achievement.id}`}
+                    width={120}
+                    height={120}
+                    className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                  />
                 </div>
 
                 {/* Content */}
