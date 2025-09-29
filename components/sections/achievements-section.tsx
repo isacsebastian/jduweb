@@ -13,9 +13,9 @@ interface Achievement {
 }
 
 const numberImages = {
-  1: "/assests/slides/numbers/uno.png",
-  2: "/assests/slides/numbers/dos.png",
-  3: "/assests/slides/numbers/tres.png"
+  1: "/numbers/uno.png",
+  2: "/numbers/dos.png",
+  3: "/numbers/tres.png"
 }
 
 const achievements: Achievement[] = [
@@ -63,7 +63,7 @@ export default function AchievementsSection() {
   }
 
   return (
-    <section className="relative py-20 bg-black text-white overflow-hidden">
+    <section id="logros" className="relative py-20 bg-black text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ export default function AchievementsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white mb-4">LOGROS</h2>
+          <h1 className="title-main mb-6">LOGROS</h1>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">

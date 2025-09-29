@@ -13,8 +13,8 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
   {
     year: "1999",
-    title: "Inicio en raquetball.",
-    description: "",
+    title: "",
+    description: "Inicios en raquetball.",
   },
   {
     year: "2002",
@@ -23,13 +23,13 @@ const timelineData: TimelineItem[] = [
   },
   {
     year: "2012 - 2013",
-    title: "Varias medallas internacionales,",
-    description: "incluido el subcampeonato en República Dominicana.",
+    title: "Medallas internacionales,",
+    description: "Logra varios podios, incluido el subcampeonato en República Dominicana",
   },
   {
     year: "2014 - 2015",
     title: "Apertura de una academia",
-    description: "juvenil de raquetball.",
+    description: "Funda una escuela juvenil de racquetball en Cuenca.",
   },
 ]
 
@@ -113,7 +113,7 @@ export default function TimelineSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section className="bg-black py-20 md:py-32 px-4 md:px-8">
+    <section id="trayectoria" className="bg-black py-20 md:py-32 px-4 md:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Section Title */}
         <motion.div
@@ -123,7 +123,7 @@ export default function TimelineSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-wider">TRAYECTORIA</h2>
+      <h1 className="title-main mb-6">TRAYECTORIA</h1>
         </motion.div>
 
         {/* Timeline */}

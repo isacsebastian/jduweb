@@ -6,7 +6,7 @@ import Image from "next/image"
 
 // Brand component for consistent styling
 const BrandCard = ({ name, imageSrc }: { name: string; imageSrc: string }) => (
-  <div className="flex items-center justify-center h-20 w-48 bg-gray-800/50 rounded-lg border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:bg-gray-700/50 hover:border-gray-600/50">
+  <div className="flex items-center justify-center h-20 w-48 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/60 hover:border-white/20">
     <div className="relative w-32 h-12">
       <Image
         src={imageSrc}
@@ -30,7 +30,7 @@ const brands = [
 
 export default function BrandsSection() {
   return (
-    <section className="py-16 bg-black-900 border-t border-gray-800">
+    <section id="marcas" className="py-16 bg-black-900 border-t border-gray-800">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,8 @@ export default function BrandsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h1 className="text-3xl md:text-3xl font-bold text-white mb-4">PATROCINADORES Y MARCAS</h1>
+                    <h1 className="title-main mb-6">PATROCINADORES Y MARCAS</h1>
+
           <p className="text-gray-400 max-w-2xl mx-auto">Respaldado por las mejores marcas y empresas</p>
         </motion.div>
 
@@ -56,9 +57,9 @@ export default function BrandsSection() {
               <motion.div
                 key={`first-${index}`}
                 className="flex-shrink-0 mx-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
               >
                 <BrandCard name={brand.name} imageSrc={brand.imageSrc} />
@@ -69,9 +70,9 @@ export default function BrandsSection() {
               <motion.div
                 key={`second-${index}`}
                 className="flex-shrink-0 mx-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
               >
                 <BrandCard name={brand.name} imageSrc={brand.imageSrc} />
@@ -92,7 +93,13 @@ export default function BrandsSection() {
         }
         
         .animate-scroll {
-          animation: scroll 20s linear infinite;
+          animation: scroll 15s linear infinite;
+        }
+
+        @media (max-width: 768px) {
+          .animate-scroll {
+            animation: scroll 10s linear infinite;
+          }
         }
         
         .animate-scroll:hover {

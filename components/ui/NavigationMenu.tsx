@@ -41,8 +41,19 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
     { title: 'Logros', href: '#logros' },
     { title: 'Escenarios Mundiales', href: '#escenarios' },
     { title: 'Valores', href: '#valores' },
-    { title: 'Agenda Próxima', href: '#agenda' }
+    { title: 'Agenda Próxima', href: '#agenda' },
+    { title: 'Contacto', href: '#contacto' }
   ];
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   const ArrowIcon = () => (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,8 +100,8 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
                     href={item.href}
                     onClick={(e) => {
                       e.preventDefault();
+                      scrollToSection(item.href);
                       onClose();
-                      console.log(`Navegando a: ${item.title}`);
                     }}
                     className="flex items-center justify-between group py-2 hover:text-gray-300 transition-colors"
                   >
@@ -113,8 +124,8 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
               </h2>
               <button
                 onClick={() => {
+                  scrollToSection('#contacto');
                   onClose();
-                  console.log('Contactar clickeado');
                 }}
                 className="w-full bg-white text-black py-3 px-6 rounded-full text-button hover:bg-gray-200 transition-colors"
               >

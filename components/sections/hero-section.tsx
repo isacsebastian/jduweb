@@ -15,6 +15,8 @@ interface SlideData {
   secondaryText: string;
   image: string;
   imageMobile?: string;
+  buttonText: string;
+  buttonLink: string;
 }
 
 const slides: SlideData[] = [
@@ -28,6 +30,8 @@ const slides: SlideData[] = [
       "Su carrera se distingue por la disciplina y los logros en escenarios de alto rendimiento.",
     image: "/slide1pc.webp",
     imageMobile: "https://imgur.com/XY18MCd.png",
+    buttonText: "VER PATROCINADORES",
+    buttonLink: "#marcas"
   },
   {
     id: 2,
@@ -39,6 +43,8 @@ const slides: SlideData[] = [
       "Una trayectoria marcada por la búsqueda de la perfección y excelencia deportiva.",
     image: "/slide2pc.webp",
     imageMobile: "https://i.imgur.com/Ypsqwiw.png",
+    buttonText: "VER TRAYECTORIA",
+    buttonLink: "#trayectoria"
   },
   {
     id: 3,
@@ -50,12 +56,24 @@ const slides: SlideData[] = [
       "Un ejemplo que inspira a las nuevas generaciones de deportistas ecuatorianos.",
     image: "/slide3pc.webp",
     imageMobile: "https://imgur.com/DUEGSbh.png",
+    buttonText: "VER LOGROS",
+    buttonLink: "#logros"
   },
 ];
 
 export default function HeroSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 30 });
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -91,12 +109,12 @@ export default function HeroSection() {
     if (!emblaApi) return;
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [emblaApi]);
 
   return (
-    <section className="min-h-[130vh] lg:min-h-screen lg:h-[90vh] lg:max-h-[90vh] bg-black text-white relative overflow-hidden">
+    <section id="sobre-mi" className="min-h-[130vh] lg:min-h-screen lg:h-[90vh] lg:max-h-[90vh] bg-black text-white relative overflow-hidden">
       {/* Carousel Container */}
       <div className="embla relative" ref={emblaRef}>
         <div className="embla__container flex">
@@ -192,8 +210,9 @@ export default function HeroSection() {
                       variant="outline"
                       size="lg"
                       className="bg-transparent border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-8 py-3 text-button"
+                      onClick={() => scrollToSection(slide.buttonLink)}
                     >
-                      CONOCE SU HISTORIA
+                      {slide.buttonText}
                     </Button>
                   </motion.div>
                 </motion.div>

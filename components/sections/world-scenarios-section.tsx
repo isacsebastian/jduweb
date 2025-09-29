@@ -30,13 +30,10 @@ const countries = [
 
 export default function WorldScenariosSection() {
   return (
-    <section className="w-full py-12 bg-black text-white">
+    <section id="escenarios" className="w-full py-12 bg-black text-white">
       <div className="container mx-auto px-4">
         {/* Título */}
-        <h2 className="title-section text-center mb-6">
-          Escenarios Mundiales
-        </h2>
-
+        <h1 className="title-main mb-6">ESCENARIOS MUNDIALES </h1>
         {/* Mobile con scroll horizontal centrado */}
         <div className="block md:hidden">
           <div className="overflow-x-auto">

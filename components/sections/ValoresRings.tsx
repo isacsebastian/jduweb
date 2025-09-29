@@ -38,7 +38,7 @@ export default function ValoresSection({
   const bandY = (1073.3 / 1997.7) * 100;
 
   return (
-    <section className="relative w-full bg-black py-10 sm:py-14">
+    <section id="valores" className="relative w-full bg-black py-10 sm:py-14">
       <motion.h2
         className="text-white text-center font-semibold tracking-wide"
         style={{ fontSize: "clamp(28px, 5vw, 56px)" }}

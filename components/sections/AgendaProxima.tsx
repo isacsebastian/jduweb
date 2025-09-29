@@ -102,9 +102,8 @@ const AgendaProxima: React.FC = () => {
   };
 
   return (
-    <div className="bg-black text-white p-8 rounded-lg max-w-md mx-auto">
-      <h1 className="title-section mb-8 text-center">AGENDA PRÓXIMA</h1>
-      
+    <section id="agenda" className="bg-black text-white p-8 rounded-lg max-w-md mx-auto">
+      <h1 className="title-main mb-6">AGENDA PRÓXIMA</h1>
       <div className="space-y-4">
         {events.map((event) => (
           <div
@@ -132,7 +131,7 @@ const AgendaProxima: React.FC = () => {
       {selectedEvent && (
         <EventModal event={selectedEvent} onClose={closeModal} />
       )}
-    </div>
+    </section>
   );
 };
 

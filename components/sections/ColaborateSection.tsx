@@ -16,26 +16,29 @@ const CollaborateSection: React.FC = () => {
   ];
 
   const socialLinks = [
-    { title: 'WhatsApp', link: '#', color: 'hover:bg-green-600' },
-    { title: 'Instagram', link: '#', color: 'hover:bg-pink-600' },
-    { title: 'TikTok', link: '#', color: 'hover:bg-purple-600' }
+    { title: 'WhatsApp', link: 'https://wa.link/mxkyco', color: 'hover:bg-green-600' },
+    { title: 'Instagram', link: 'https://www.instagram.com/josedanielugalde/', color: 'hover:bg-pink-600' },
+    { title: 'TikTok', link: 'https://www.tiktok.com/@josedanielugalde', color: 'hover:bg-purple-600' }
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col justify-center items-center p-8">
+    <section id="contacto" className="bg-black text-white min-h-screen flex flex-col justify-center items-center p-8">
       <div className="max-w-6xl w-full">
         {/* Título principal */}
         <div className="text-center mb-12">
           <h1 className="title-main mb-6">
             CONTÁCTAME
           </h1>
-          <p className="text-body-large text-gray-300 mb-8">
+            <p className="text-body-large text-gray-300 mb-8">
             Impulsa tu marca junto a un<br />
             referente deportivo.
-          </p>
-          <button className="bg-white text-black px-8 py-3 rounded-full text-button hover:bg-gray-200 transition-all duration-300">
+            </p>
+            <a
+            href="https://www.instagram.com/josedanielugalde/"
+            className="bg-white text-black px-8 py-3 rounded-full text-button hover:bg-gray-200 transition-all duration-300 inline-block"
+            >
             CONTACTAR
-          </button>
+            </a>
         </div>
 
         {/* Secciones */}
@@ -75,6 +78,8 @@ const CollaborateSection: React.FC = () => {
               <a
                 key={social.title}
                 href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`block border border-gray-600 rounded-full px-6 py-2 text-center text-gray-300 hover:text-white transition-all duration-300 ${social.color}`}
               >
                 {social.title}
@@ -119,7 +124,7 @@ const CollaborateSection: React.FC = () => {
           </svg>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
