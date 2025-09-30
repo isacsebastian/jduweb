@@ -228,32 +228,40 @@ export default function HeroSection() {
                   className="flex-1 max-w-lg lg:mt-0 mb-0 lg:mb-0 w-full lg:w-auto"
                 >
                   <div className="relative">
-                    {/* Mobile Image - Sin márgenes laterales con padding top */}
-                    <div className={`lg:hidden w-full h-[500px] overflow-hidden lg:pt-0 ${index === 0 ? 'pt-5' : 'pt-[50px]'}`}>
-                      {slide.imageMobile?.includes('http') ? (
-                        <img
-                          src={slide.imageMobile}
-                          alt={slide.title}
-                          className="w-full h-full object-cover"
-                          loading={index === 0 ? "eager" : "lazy"}
-                          onError={(e) => {
-                            console.log('External image failed to load, trying fallback');
-                            e.currentTarget.style.display = 'none';
-                            const fallback = e.currentTarget.nextElementSibling;
-                            if (fallback && fallback instanceof HTMLElement) fallback.style.display = 'block';
-                          }}
-                        />
-                      ) : (
-                        <Image
-                          src={slide.imageMobile || slide.image}
-                          alt={slide.title}
-                          fill
-                          className="object-cover"
-                          priority={index === 0}
-                          sizes="100vw"
-                          quality={85}
-                        />
-                      )}
+                    {/* Mobile Image - Con padding uniforme pero usando object-fit contain */}
+                    <div className={`lg:hidden w-full ${index === 0 ? 'h-[500px] pt-5' : 'h-[550px] pt-[50px]'} overflow-visible relative`}>
+                      <div className="absolute inset-0 flex items-start justify-center" style={{ zIndex: 10 }}>
+                        {slide.imageMobile?.includes('http') ? (
+                          <img
+                            src={slide.imageMobile}
+                            alt={slide.title}
+                            className="w-full h-full object-contain"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            style={{ 
+                              maxHeight: '100%',
+                              objectFit: 'contain',
+                              objectPosition: 'top center'
+                            }}
+                            onError={(e) => {
+                              console.log('External image failed to load, trying fallback');
+                              e.currentTarget.style.display = 'none';
+                              const fallback = e.currentTarget.nextElementSibling;
+                              if (fallback && fallback instanceof HTMLElement) fallback.style.display = 'block';
+                            }}
+                          />
+                        ) : (
+                          <Image
+                            src={slide.imageMobile || slide.image}
+                            alt={slide.title}
+                            fill
+                            className="object-contain"
+                            style={{ objectPosition: 'top center' }}
+                            priority={index === 0}
+                            sizes="100vw"
+                            quality={85}
+                          />
+                        )}
+                      </div>
                     </div>
 
                     {/* Desktop Image */}
