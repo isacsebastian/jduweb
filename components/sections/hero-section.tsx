@@ -132,7 +132,9 @@ export default function HeroSection() {
                     x: currentIndex === index ? 0 : -50,
                   }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="flex-1 max-w-2xl lg:pr-12 text-center lg:text-left px-4 md:px-6 lg:px-0 -mt-13 lg:mt-0 relative z-20"
+                  className={`flex-1 max-w-2xl lg:pr-12 text-center lg:text-left px-4 md:px-6 lg:px-0 lg:mt-0 relative z-20 ${
+                    index === 0 ? '-mt-13' : '-mt-32'
+                  }`}
                 >
                   <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -228,40 +230,36 @@ export default function HeroSection() {
                   className="flex-1 max-w-lg lg:mt-0 mb-0 lg:mb-0 w-full lg:w-auto"
                 >
                   <div className="relative">
-                    {/* Mobile Image - Con padding uniforme pero usando object-fit contain */}
-                    <div className={`lg:hidden w-full ${index === 0 ? 'h-[500px] pt-5' : 'h-[550px] pt-[50px]'} overflow-visible relative`}>
-                      <div className="absolute inset-0 flex items-start justify-center" style={{ zIndex: 10 }}>
-                        {slide.imageMobile?.includes('http') ? (
-                          <img
-                            src={slide.imageMobile}
-                            alt={slide.title}
-                            className="w-full h-full object-contain"
-                            loading={index === 0 ? "eager" : "lazy"}
-                            style={{ 
-                              maxHeight: '100%',
-                              objectFit: 'contain',
-                              objectPosition: 'top center'
-                            }}
-                            onError={(e) => {
-                              console.log('External image failed to load, trying fallback');
-                              e.currentTarget.style.display = 'none';
-                              const fallback = e.currentTarget.nextElementSibling;
-                              if (fallback && fallback instanceof HTMLElement) fallback.style.display = 'block';
-                            }}
-                          />
-                        ) : (
-                          <Image
-                            src={slide.imageMobile || slide.image}
-                            alt={slide.title}
-                            fill
-                            className="object-contain"
-                            style={{ objectPosition: 'top center' }}
-                            priority={index === 0}
-                            sizes="100vw"
-                            quality={85}
-                          />
-                        )}
-                      </div>
+                    {/* Mobile Image - 100% width con object-cover */}
+                    <div className={`lg:hidden w-full ${index === 0 ? 'h-[500px] pt-5' : 'h-[550px] pt-[50px]'} overflow-hidden`}>
+                      {slide.imageMobile?.includes('http') ? (
+                        <img
+                          src={slide.imageMobile}
+                          alt={slide.title}
+                          className="w-full h-full object-cover"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          style={{ 
+                            objectPosition: 'center center'
+                          }}
+                          onError={(e) => {
+                            console.log('External image failed to load, trying fallback');
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling;
+                            if (fallback && fallback instanceof HTMLElement) fallback.style.display = 'block';
+                          }}
+                        />
+                      ) : (
+                        <Image
+                          src={slide.imageMobile || slide.image}
+                          alt={slide.title}
+                          fill
+                          className="object-cover"
+                          style={{ objectPosition: 'center center' }}
+                          priority={index === 0}
+                          sizes="100vw"
+                          quality={85}
+                        />
+                      )}
                     </div>
 
                     {/* Desktop Image */}
