@@ -16,7 +16,7 @@ const CollaborateSection: React.FC = () => {
   ];
 
   const socialLinks = [
-    { title: 'WhatsApp', link: 'https://wa.link/mxkyco', color: 'hover:bg-green-600' },
+    { title: 'WhatsApp', link: 'https://wa.link/w0sgxr', color: 'hover:bg-green-600' },
     { title: 'Instagram', link: 'https://www.instagram.com/josedanielugalde/', color: 'hover:bg-pink-600' },
     { title: 'TikTok', link: 'https://www.tiktok.com/@josedanielugalde', color: 'hover:bg-purple-600' }
   ];

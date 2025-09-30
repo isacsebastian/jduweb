@@ -6,18 +6,18 @@ import Image from "next/image"
 const countries = [
   // América del Norte
   { name: "Canadá", x: "18%", y: "22%" },
-  { name: "USA", x: "20%", y: "30%" },
-  { name: "México", x: "18%", y: "39%" },
+  { name: "USA", x: "30%", y: "30%" },
+  { name: "México", x: "25%", y: "44%" },
   
   // América Central y Caribe
-  { name: "Guatemala", x: "21%", y: "41%" },
-  { name: "Nicaragua", x: "22%", y: "44%" },
-  { name: "Rep. Dominicana", x: "26%", y: "42%" },
+  { name: "Guatemala", x: "27%", y: "52%" },
+  { name: "Nicaragua", x: "28%", y: "56%" },
+  { name: "Rep. Dominicana", x: "29%", y: "59%" },
   
   // América del Sur
-  { name: "Colombia", x: "25%", y: "52%" },
-  { name: "Ecuador", x: "30%", y: "57%" },
-  { name: "Perú", x: "25%", y: "62%" },
+  { name: "Colombia", x: "32%", y: "55%" },
+  { name: "Ecuador", x: "31%", y: "60%" },
+  { name: "Perú", x: "32%", y: "65%" },
   { name: "Bolivia", x: "33%", y: "73%" },
   { name: "Chile", x: "32%", y: "80%" },
   
