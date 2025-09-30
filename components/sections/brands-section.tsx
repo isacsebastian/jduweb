@@ -1,19 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { InfiniteBrandsSlider } from "@/components/ui/infinite-brands-slider"
 import Image from "next/image"
 
 // Brand component for consistent styling
 const BrandCard = ({ name, imageSrc }: { name: string; imageSrc: string }) => (
-  <div className="flex items-center justify-center h-20 w-48 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/60 hover:border-white/20">
-    <div className="relative w-32 h-12">
+  <div className="flex items-center justify-center h-16 sm:h-20 w-36 sm:w-48 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/60 hover:border-white/20 flex-shrink-0">
+    <div className="relative w-24 sm:w-32 h-10 sm:h-12">
       <Image
         src={imageSrc}
         alt={name}
         fill
         className="object-contain filter brightness-90 hover:brightness-100 transition-all duration-300"
-        sizes="(max-width: 768px) 128px, 128px"
+        sizes="(max-width: 768px) 96px, 128px"
+        priority
       />
     </div>
   </div>
@@ -29,6 +29,9 @@ const brands = [
 ]
 
 export default function BrandsSection() {
+  // Duplicamos las marcas múltiples veces para asegurar un loop infinito suave
+  const repeatedBrands = [...brands, ...brands, ...brands, ...brands]
+
   return (
     <section id="marcas" className="py-16 bg-black-900 border-t border-gray-800">
       <div className="container mx-auto px-4">
@@ -39,8 +42,7 @@ export default function BrandsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-                    <h1 className="title-main mb-6">PATROCINADORES Y MARCAS</h1>
-
+          <h1 className="title-main mb-6">PATROCINADORES Y MARCAS</h1>
           <p className="text-gray-400 max-w-2xl mx-auto">Respaldado por las mejores marcas y empresas</p>
         </motion.div>
 
@@ -49,36 +51,21 @@ export default function BrandsSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="overflow-hidden"
+          className="relative overflow-hidden py-4"
         >
-          <div className="flex animate-scroll">
-            {/* Primera fila de marcas */}
-            {brands.map((brand, index) => (
-              <motion.div
-                key={`first-${index}`}
-                className="flex-shrink-0 mx-6"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                viewport={{ once: true }}
-              >
-                <BrandCard name={brand.name} imageSrc={brand.imageSrc} />
-              </motion.div>
-            ))}
-            {/* Duplicado para efecto infinito */}
-            {brands.map((brand, index) => (
-              <motion.div
-                key={`second-${index}`}
-                className="flex-shrink-0 mx-6"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                viewport={{ once: true }}
-              >
-                <BrandCard name={brand.name} imageSrc={brand.imageSrc} />
-              </motion.div>
+          <div className="flex gap-4 sm:gap-6 animate-scroll">
+            {repeatedBrands.map((brand, index) => (
+              <BrandCard 
+                key={`brand-${index}`} 
+                name={brand.name} 
+                imageSrc={brand.imageSrc} 
+              />
             ))}
           </div>
+          
+          {/* Gradientes laterales para efecto fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black-900 to-transparent pointer-events-none z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black-900 to-transparent pointer-events-none z-10" />
         </motion.div>
       </div>
       
@@ -88,17 +75,18 @@ export default function BrandsSection() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(calc(-100% / 4));
           }
         }
         
         .animate-scroll {
-          animation: scroll 15s linear infinite;
+          animation: scroll 20s linear infinite;
+          width: max-content;
         }
 
         @media (max-width: 768px) {
           .animate-scroll {
-            animation: scroll 10s linear infinite;
+            animation: scroll 15s linear infinite;
           }
         }
         
